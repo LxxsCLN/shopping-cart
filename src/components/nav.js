@@ -13,6 +13,6 @@ const Nav = () => {
         </Link>
       </nav>
     );
-  };
+};
   
-  export default Nav;
+export default Nav;

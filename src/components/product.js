@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
 const Product = (props) => {
-
-    const [quantity, setQuantity] = useState(1)
+const [quantity, setQuantity] = useState(1)
 
     return (
-      <div className="product">
+        <div className="product">
                 <p>{props.product.image}</p>
                 <p>{props.product.name}</p>
                 <p>{props.product.price}</p>
@@ -26,6 +25,6 @@ const Product = (props) => {
                 } }>Agregar al carrito</button>
             </div> 
     );
-  };
+};
   
-  export default Product;
+export default Product;

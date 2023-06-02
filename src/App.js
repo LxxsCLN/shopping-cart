@@ -1,19 +1,16 @@
 import React, { useState, useEffect, } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/nav"
 import Home from "./components/home"
 import Shop from "./components/shop"
 import Cart from "./components/cart"
-import { flushSync } from 'react-dom';
 
-function App() {
-
-  
+function App() {  
   const [ quantity, setQuantity ] = useState(0);
   const [ cart, setCart ] = useState(undefined);
   const [ cart2, setCart2 ] = useState([]);
   const [ price, setPrice ] = useState(0);
-  const [ products, setProducts ] = useState([
+  const products = [
     {
       name: "one",
       image: "img1",
@@ -50,7 +47,7 @@ function App() {
       id: 6,
       price: 600,
     },
-  ]);
+  ];
 
   useEffect(() => {
     if (cart === undefined) return;
@@ -65,8 +62,7 @@ function App() {
     let b = cart[1] 
     a.quantity = b;
     setCart2([...cart2, a])
-    }    
-    
+    }        
   }, [cart])
 
   function addProduct(prod, quant){
@@ -85,34 +81,23 @@ function App() {
   }
 
   function changeProduct(prodid, value){
-
     let index = cart2.findIndex(e => e.id === prodid)
     let found = cart2.find(e => e.id === prodid)
-
     if (found.quantity === 1 && value === false){
-      removeProduct(prodid)
-      
+      removeProduct(prodid)      
     } else if (value === false){
       setQuantity(quantity - 1)
       setPrice(price - found.price) 
       let copy = cart2.slice()
       copy[index].quantity -= 1;
       setCart2(copy)
-    } else if (value === true){
+    } else {
       setQuantity(quantity + 1)
       setPrice(price + found.price) 
       let copy = cart2.slice()
       copy[index].quantity += 1;
       setCart2(copy)
     }
-
-
-    /* console.log(index,found)
-    setPrice(price - (found.quantity * found.price)) 
-    let copy = cart2.slice()
-    copy[index].quantity -= 1;
-    console.log(copy)
-    setCart2(copy) */
   }
 
    return (

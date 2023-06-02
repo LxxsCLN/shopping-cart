@@ -57,9 +57,25 @@ li{
 }
 
 .cartitem{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   border: 1px solid black;
   align-items: center;
+  height: 2rem;
+  justify-items: center;
+}
+
+.prodquant{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.cartdiv{
+  display: flex;
+  flex-direction: column;  
+}
+
+.hello{
+  align-self: center;
 }
