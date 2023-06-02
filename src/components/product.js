@@ -14,13 +14,13 @@ const Product = (props) => {
                         if (quantity <= 1) return
                         setQuantity(quantity - 1)
                     }}> - </button>
-                    <p> {quantity} </p>
+                    <p>{quantity}</p>
                     <button onClick={() =>{
                         if (quantity >= 99) return
                         setQuantity(quantity + 1)
                     }}> + </button>
                 </div>
-                <button onClick={() =>{
+                <button onClick={async() =>{
                     props.addProduct(props.product, quantity)
                     setQuantity(1)
                 } }>Agregar al carrito</button>

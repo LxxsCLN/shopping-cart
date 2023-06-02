@@ -7,7 +7,7 @@ const Shop = (props) => {
 
     let prod = []
     props.products.forEach(element => {
-        prod.push(<Product addProduct={props.addProduct} product={element} key={element.id} />)
+        prod.push(<Product addProduct={props.addProduct} product={element} key={element.id}  />)
     });
 
     return (
