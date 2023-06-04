@@ -5,6 +5,22 @@ import Home from "./components/home"
 import Shop from "./components/shop"
 import Cart from "./components/cart"
 
+
+/* 
+  {
+    albums.map((item) => {
+    return (<div className='carddiv' key={item.id} onClick={()=> {
+      updateArray(item.id);
+    }
+    }>          
+      <img alt='' src={process.env.PUBLIC_URL + item.img} ></img>
+      <p className='text'>{item.text}</p>
+
+      </div>  
+    )})
+  }
+*/
+
 function App() {  
   const [ quantity, setQuantity ] = useState(0);
   const [ cart, setCart ] = useState(undefined);
@@ -12,41 +28,65 @@ function App() {
   const [ price, setPrice ] = useState(0);
   const products = [
     {
-      name: "one",
-      image: "img1",
+      name: "iPhone 3",
+      image: "/assets/iphone3.jpg",
       id: 1,
-      price: 100,
+      price: 1000,
     },
     {
-      name: "two",
-      image: "img2",
+      name: "iPhone 4",
+      image: "/assets/iphone4.jpg",
       id: 2,
-      price: 200,
+      price: 2000,
     },
     {
-      name: "three",
-      image: "img3",
+      name: "iPhone 4s",
+      image: "/assets/iphone4s.jpg",
       id: 3,
-      price: 300,
+      price: 3000,
     },
     {
-      name: "four",
-      image: "img4",
+      name: "iPhone 5",
+      image: "/assets/iphone5.jpg",
       id: 4,
-      price: 400,
+      price: 4000,
     },
     {
-      name: "five",
-      image: "img5",
+      name: "iPhone 5s",
+      image: "/assets/iphone5s.jpg",
       id: 5,
-      price: 500,
+      price: 5000,
     },
     {
-      name: "six",
-      image: "img6",
+      name: "iPhone 5c",
+      image: "/assets/iphone5c.jpg",
       id: 6,
-      price: 600,
+      price: 6000,
     },
+    {
+      name: "iPhone 6",
+      image: "/assets/iphone6.png",
+      id: 7,
+      price: 7000,
+    },
+    {
+      name: "iPhone 6 plus",
+      image: "/assets/iphone6plus.png",
+      id: 8,
+      price: 8000,
+    },
+    {
+      name: "iPhone 6s",
+      image: "/assets/iphone6s.jpg",
+      id: 9,
+      price: 9000,
+    },
+    {
+      name: "iPhone 6s plus",
+      image: "/assets/iphone6splus.png",
+      id: 10,
+      price: 10000,
+    }
   ];
 
   useEffect(() => {
