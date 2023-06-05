@@ -4,7 +4,7 @@ const Product = (props) => {
 const [quantity, setQuantity] = useState(1)
 
     return (
-        <div className="product">
+        <div className="product boxshadow">
             
                 <img alt='' src={process.env.PUBLIC_URL + props.product.image} ></img>
                 <p>{props.product.name}</p>

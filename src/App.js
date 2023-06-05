@@ -5,25 +5,8 @@ import Home from "./components/home"
 import Shop from "./components/shop"
 import Cart from "./components/cart"
 
-
-/* 
-  {
-    albums.map((item) => {
-    return (<div className='carddiv' key={item.id} onClick={()=> {
-      updateArray(item.id);
-    }
-    }>          
-      <img alt='' src={process.env.PUBLIC_URL + item.img} ></img>
-      <p className='text'>{item.text}</p>
-
-      </div>  
-    )})
-  }
-*/
-
 function App() {  
   const [ quantity, setQuantity ] = useState(0);
-  const [ cart, setCart ] = useState(undefined);
   const [ cart2, setCart2 ] = useState([]);
   const [ price, setPrice ] = useState(0);
   const products = [
@@ -89,26 +72,19 @@ function App() {
     }
   ];
 
-  useEffect(() => {
-    if (cart === undefined) return;
-    let index = cart2.findIndex(e => e.id === cart[0].id)
-    if (index >= 0) {      
-      let copy = cart2
-      copy[index].quantity += cart[1]
-      setCart2(copy)
-    }
-    else{
-    let a = structuredClone(cart[0]) 
-    let b = cart[1] 
-    a.quantity = b;
-    setCart2([...cart2, a])
-    }        
-  }, [cart])
-
   function addProduct(prod, quant){
     setQuantity(quantity + quant)    
     setPrice(price + (quant * prod.price))
-    setCart([prod, quant])
+
+      let index = cart2.findIndex(e => e.id === prod.id)
+      if (index >= 0) {      
+        let copy = cart2
+        copy[index].quantity += quant;
+        setCart2(copy)
+      }else{
+        let testobj = {...prod, quantity: quant}
+        setCart2([...cart2, testobj])
+      }    
   }
 
   function removeProduct(prodid){
@@ -145,7 +121,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop cart={cart} quantity={quantity} price={price} products={products} addProduct={addProduct}  />} />
+        <Route path="/shop" element={<Shop quantity={quantity} price={price} products={products} addProduct={addProduct}  />} />
         <Route path="/cart" element={<Cart cart2={cart2} quantity={quantity} price={price} products={products} removeProduct={removeProduct} changeProduct={changeProduct} />} />
       </Routes>
     </BrowserRouter>

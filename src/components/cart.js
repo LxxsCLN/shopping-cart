@@ -5,20 +5,20 @@ const Cart = (props) => {
   const [ empty, setEmpty ] = useState(true);
   let list = []
   props.cart2.forEach(element => {
-    list.push(<div className="cartitem" key={uniqid()}>
-        <p>{element.image}</p>
+    list.push(<div className="cartitem boxshadow" key={uniqid()}>
+        <img className="img" alt='' src={process.env.PUBLIC_URL + element.image} ></img>
         <p>{element.name}</p>  
         <div className="prodquant">
-          <button onClick={() =>{
+          <button className="plusminus" onClick={() =>{
           props.changeProduct(element.id, false)
           }}>-</button>
           <p>{element.quantity}</p>
-          <button onClick={() =>{
+          <button className="plusminus" onClick={() =>{
           props.changeProduct(element.id, true)
           }}>+</button>
         </div>                  
         <p>${element.price}</p>
-        <button onClick={() =>{
+        <button className="addprodbutt" onClick={() =>{
         props.removeProduct(element.id)
         } }>Eliminar</button>
     </div>) 
@@ -34,12 +34,12 @@ const Cart = (props) => {
 
   return (
     <div className="cartdiv">
-      <h1 className="hello">Hello from Cart</h1>
+      <h1 className="hello">Carrito de compras</h1>
       <div className="cartitem">
-          <p>Image</p>
-          <p>Name</p> 
-          <p>Quantity</p>           
-          <p>Price</p>
+          <p></p>
+          <p>Producto</p> 
+          <p>Cantidad</p>           
+          <p>Precio</p>
           <p></p>
       </div>
       {empty ? (<h2 className="hello">Carrito vacío</h2>) : list}
@@ -49,7 +49,7 @@ const Cart = (props) => {
           <p>Productos: {props.quantity}</p>            
           <p>Total: ${props.price}</p>
       </div>
-      <button>Comprar</button>
+      <button className="addprodbutt buyprod">Comprar</button>
     </div>
   );
 };

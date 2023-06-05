@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = (props) => {
     return (
       <nav>
-        <h1>Logo</h1>
+        <h1>Apple</h1>
         <Link to={"/"}>
-        <li>Home</li>
+        <li>Inicio</li>
         </Link>
         <Link to={"/shop"}>
-        <li>Shop</li>
+        <li>Tienda</li>
         </Link>
       </nav>
     );
