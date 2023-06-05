@@ -326,4 +326,11 @@ background: linear-gradient(90deg, rgba(189,189,189,1) 0%, rgba(255,255,255,1) 5
     line-height: normal;
     color: rgb(59, 59, 59);
   }
+  .enter{
+    background-color: #7e7e7e;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 9px;
+    width: auto;
+  }
 }
