@@ -4,6 +4,7 @@ import Nav from "./components/nav"
 import Home from "./components/home"
 import Shop from "./components/shop"
 import Cart from "./components/cart"
+import { HashRouter } from "react-router-dom";
 
 function App() {  
   const [ quantity, setQuantity ] = useState(0);
@@ -117,14 +118,14 @@ function App() {
   }
 
    return (
-    <BrowserRouter>
+    <HashRouter>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop quantity={quantity} price={price} products={products} addProduct={addProduct}  />} />
         <Route path="/cart" element={<Cart cart2={cart2} quantity={quantity} price={price} products={products} removeProduct={removeProduct} changeProduct={changeProduct} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
