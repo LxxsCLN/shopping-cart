@@ -7,7 +7,7 @@ const Cart = (props) => {
   props.cart2.forEach(element => {
     list.push(<div className="cartitem boxshadow cartitem2" key={uniqid()}>
         <img className="img one" alt='' src={process.env.PUBLIC_URL + element.image} ></img>
-        <p className="two">{element.name}</p>  
+        <p className="two twot">{element.name}</p>  
         <div className="prodquant three">
           <button className="plusminus" onClick={() =>{
           props.changeProduct(element.id, false)

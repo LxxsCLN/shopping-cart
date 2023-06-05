@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Nav = (props) => {
     return (
       <nav className="nav">
-        <h1>Apple</h1>
+        <img className="logoimg" alt="" src={process.env.PUBLIC_URL + "/assets/applelogo.png"}></img>
         <Link to={"/"}>
         <li>Inicio</li>
         </Link>

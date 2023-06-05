@@ -7,7 +7,7 @@ const [quantity, setQuantity] = useState(1)
         <div className="product boxshadow">
             
                 <img className="on" alt='' src={process.env.PUBLIC_URL + props.product.image} ></img>
-                <p >{props.product.name}</p>
+                <p className="twot">{props.product.name}</p>
                 <p>${props.product.price}</p>
                 <div className="quantity">
                     <button className="plusminus" onClick={() =>{
