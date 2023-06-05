@@ -54,7 +54,7 @@ function App() {
       price: 7000,
     },
     {
-      name: "iPhone 6 plus",
+      name: "iPhone 6 Plus",
       image: "/assets/iphone6plus.png",
       id: 8,
       price: 8000,
@@ -66,7 +66,7 @@ function App() {
       price: 9000,
     },
     {
-      name: "iPhone 6s plus",
+      name: "iPhone 6s Plus",
       image: "/assets/iphone6splus.png",
       id: 10,
       price: 10000,
