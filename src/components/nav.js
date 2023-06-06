@@ -6,10 +6,10 @@ const Nav = (props) => {
       <nav className="nav">
         <img className="logoimg" alt="" src={process.env.PUBLIC_URL + "/assets/applelogo.png"}></img>
         <Link to={"/"}>
-        <li>Inicio</li>
+        <li>Home</li>
         </Link>
         <Link to={"/shop"}>
-        <li>Tienda</li>
+        <li>Store</li>
         </Link>
         <p></p>
       </nav>

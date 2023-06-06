@@ -9,11 +9,10 @@ const Shop = (props) => {
 
   return (
     <div className="shopdiv">
-      <nav className="cart">
-        
-          <h2>Nuestros productos</h2> <p></p>  
+      <nav className="cart">        
+          <h2>Our Products</h2> <p></p>  
           <Link to={"/cart"}>
-          <h3 className="cartclass">Carrito ({props.quantity})</h3>
+          <h3 className="cartclass">Cart ({props.quantity})</h3>
           </Link> 
           <p></p>
       </nav>  

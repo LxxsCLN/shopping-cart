@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import uniqid from 'uniqid';
+import { Link } from "react-router-dom";
 
 const Cart = (props) => {
+
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',minimumFractionDigits: 0});
+
+
   const [ empty, setEmpty ] = useState(true);
   let list = []
   props.cart2.forEach(element => {
@@ -17,10 +24,10 @@ const Cart = (props) => {
           props.changeProduct(element.id, true)
           }}>+</button>
         </div>                  
-        <p className="four">${element.price}</p>
+        <p className="four">{formatter.format(element.price)}</p>
         <button className="addprodbutt five" onClick={() =>{
         props.removeProduct(element.id)
-        } }>Eliminar</button>
+        } }>Remove</button>
     </div>) 
   });  
 
@@ -34,22 +41,25 @@ const Cart = (props) => {
 
   return (
     <div className="cartdiv">
-      <h1 className="hello">Carrito de compras</h1>
+      <h1 className="hello">Cart</h1>
       <div className="cartitem invis">
           <p></p>
-          <p>Producto</p> 
-          <p>Cantidad</p>           
-          <p>Precio</p>
+          <p>Product</p> 
+          <p>Quantity</p>           
+          <p>Price</p>
           <p></p>
       </div>
-      {empty ? (<h2 className="hello">Carrito vacío</h2>) : list}
+      {empty ? (<h2 className="hello">Empty</h2>) : list}
       <div className="cartitem">
           <p></p>
           <p></p> 
-          <p>Productos: {props.quantity}</p>            
-          <p>Total: ${props.price}</p>
+          <p>Products: {props.quantity}</p>            
+          <p>Total: {formatter.format(props.price)}</p>
       </div>
-      <button className="addprodbutt buyprod">Comprar</button>
+      <Link className="hello" to={"/thankyou"}>
+      <button className="addprodbutt buyprod" onClick={()=>{
+        props.clearCart()} }>Purchase</button>
+      </Link>       
     </div>
   );
 };

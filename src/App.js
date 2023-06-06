@@ -5,6 +5,7 @@ import Home from "./components/home"
 import Shop from "./components/shop"
 import Cart from "./components/cart"
 import { HashRouter } from "react-router-dom";
+import Thank from "./components/thankyou";
 
 function App() {  
   const [ quantity, setQuantity ] = useState(0);
@@ -15,63 +16,69 @@ function App() {
       name: "iPhone 3",
       image: "/assets/iphone3.jpg",
       id: 1,
-      price: 1000,
+      price: 99,
     },
     {
       name: "iPhone 4",
       image: "/assets/iphone4.jpg",
       id: 2,
-      price: 2000,
+      price: 149,
     },
     {
       name: "iPhone 4s",
       image: "/assets/iphone4s.jpg",
       id: 3,
-      price: 3000,
+      price: 199,
     },
     {
       name: "iPhone 5",
       image: "/assets/iphone5.jpg",
       id: 4,
-      price: 4000,
+      price: 249,
     },
     {
       name: "iPhone 5s",
       image: "/assets/iphone5s.jpg",
       id: 5,
-      price: 5000,
+      price: 299,
     },
     {
       name: "iPhone 5c",
       image: "/assets/iphone5c.jpg",
       id: 6,
-      price: 6000,
+      price: 349,
     },
     {
       name: "iPhone 6",
       image: "/assets/iphone6.png",
       id: 7,
-      price: 7000,
+      price: 399,
     },
     {
       name: "iPhone 6 Plus",
       image: "/assets/iphone6plus.png",
       id: 8,
-      price: 8000,
+      price: 449,
     },
     {
       name: "iPhone 6s",
       image: "/assets/iphone6s.jpg",
       id: 9,
-      price: 9000,
+      price: 499,
     },
     {
       name: "iPhone 6s Plus",
       image: "/assets/iphone6splus.png",
       id: 10,
-      price: 10000,
+      price: 549,
     }
   ];
+  
+  function clearCart(){
+    setCart2([])
+    setQuantity(0)
+    setPrice(0)
+  }  
 
   function addProduct(prod, quant){
     setQuantity(quantity + quant)    
@@ -122,8 +129,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/thankyou" element={<Thank />} />
         <Route path="/shop" element={<Shop quantity={quantity} price={price} products={products} addProduct={addProduct}  />} />
-        <Route path="/cart" element={<Cart cart2={cart2} quantity={quantity} price={price} products={products} removeProduct={removeProduct} changeProduct={changeProduct} />} />
+        <Route path="/cart" element={<Cart cart2={cart2} clearCart={clearCart} quantity={quantity} price={price} products={products} removeProduct={removeProduct} changeProduct={changeProduct} />} />
       </Routes>
     </HashRouter>
   );
